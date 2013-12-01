@@ -6,7 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.widget.Toast;
-import java.sql.SQLException;
+import android.database.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -42,14 +42,14 @@ public class Connect_DB extends SQLiteOpenHelper
       {
        db.execSQL (CREATE_TABLE_TASKLIST);
       }
-          catch (Exception e)
+        catch (SQLException e)
         {
             Toast.makeText(this.context, "cant do", Toast.LENGTH_LONG).show();
             e.printStackTrace();
         }
     }
 
-    @Override
+   // @Override
     public void onUpgrade (SQLiteDatabase db, int oldVersion, int newVersion )
     {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_TASKLIST);
